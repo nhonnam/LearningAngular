@@ -14,6 +14,7 @@ export class AppComponent implements AfterViewInit {
   fromChildOutput: string;
   imgUrl: string = 'https://img.freepik.com/premium-photo/emoji-emoticon-character-background_601748-31824.jpg';
   bool: boolean = false;
+  userName: string = 'Nom sau ngu dai';
 
   @ViewChild(PostComponent) childComp: PostComponent;
 
@@ -35,10 +36,12 @@ export class AppComponent implements AfterViewInit {
     console.log('Button Click Event worked');
   }
 
-  onKeyup(username: string) {
+  // onKeyup(username: string) {
+  //   console.log(username);
+  // }
 
-    console.log(username);
-
+  onKeyup() {
+    console.log(this.userName);
   }
 
 }
