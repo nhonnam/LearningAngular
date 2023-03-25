@@ -7,5 +7,9 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  postTitle: string;
+  postDetails: string;
+  imageURL: string;
+  postURL: string;
+  addBackground: boolean;
 }
