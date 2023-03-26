@@ -1,0 +1,98 @@
+<!-- <p>Fetched Using ngFor Directive</p>
+
+<ul>
+  <li *ngFor="let post of postArray">{{ post }}</li>
+</ul>
+
+<p>Fetching Object Array</p>
+
+<button (click)="addNew()">Add New Data</button>
+
+<div *ngIf="objArray.length > 0; then postList; else noData"></div>
+
+<ng-template #postList>
+  <ul>
+    <li *ngFor="let post of objArray; let i = index">
+      {{ i }} {{ post.postTitle }}
+      <button (click)="onDelete(i)">Delete</button>
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template #noData>
+  <p>There is no Data to fetch</p>
+</ng-template>
+
+<div>
+  <button (click)="onClick('step 1')">Step 1</button>
+  <button (click)="onClick('step 2')">Step 2</button>
+  <button (click)="onClick('step 3')">Step 3</button>
+</div>
+<br />
+
+<div [ngSwitch]="stepForm">
+  <div *ngSwitchCase="'step 1'">Step 1 Form</div>
+  <div *ngSwitchCase="'step 2'">Step 2 Form</div>
+  <div *ngSwitchCase="'step 3'">Step 3 Form</div>
+  <div *ngSwitchDefault="">Something Else</div>
+</div>
+
+<p>NgStyle Directive</p>
+
+<h1 [class.main]="isActive" [class.text-weight]="isActive">
+  Angular Udemy Course
+</h1> -->
+
+<!-- <h1
+  [ngStyle]="{
+    color: isActive ? 'red' : 'black',
+    textTransform: isActive ? 'uppercase' : 'lowercase'
+  }"
+>
+  NgStyle Directive
+</h1> -->
+
+<!-- <h1 [ngClass]="{ main: isActive, 'text-weight': isActive }">
+  ngClass Directive
+</h1> -->
+
+<div class="form-area">
+  <h3>User Details</h3>
+  <input type="text" placeholder="Name" [(ngModel)]="name" />
+  <br /><br />
+  <input type="email" placeholder="E-Mail" [(ngModel)]="email" />
+  <br /><br />
+  <textarea
+    cols="30"
+    rows="10"
+    placeholder="Address"
+    [(ngModel)]="address"
+  ></textarea>
+  <br /><br />
+  <button (click)="onClick()">Save Data</button>
+</div>
+
+<div *ngIf="userArray.length > 0; else noData">
+  <div class="table-area">
+    <table [width]="500">
+      <thead>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Action</th>
+      </thead>
+      <tr *ngFor="let user of userArray; let index = index">
+        <td>{{ index + 1 }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.address }}</td>
+        <td><button (click)="onDelete(index)">Delete</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<ng-template #noData>
+  <h4>No data to show</h4>
+</ng-template>
