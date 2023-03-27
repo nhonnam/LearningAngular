@@ -7,7 +7,7 @@ import { ChangeDetectorRef } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   title = 'hello-world';
   parentMessage: string = 'Message coming from the parent component';
   message: string;
@@ -22,11 +22,7 @@ export class AppComponent implements AfterViewInit {
     console.log(this.childComp)
   }
 
-  ngAfterViewInit(): void {
-    console.log(this.childComp);
-    this.message = this.childComp.childMessage;
-    this.cdref.detectChanges();
-  }
+
 
   receiveMessage($event: string) {
     this.fromChildOutput = $event;

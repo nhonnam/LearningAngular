@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
+import { PostService } from '../Services/post.service';
+import { Post } from '../models/post'
 
 @Component({
   selector: 'app-post',
@@ -7,27 +9,21 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  title: string = "List of Posts";
-  messagePost: string = 'Message Post';
+  posts: Array<any>;
 
-  postParentMessage: string = 'Message coming from the post parent';
-  childMessage: string = 'From Child Component';
-
-  outputChildMessage: string = 'Message from Child Component Via Output';
-
-  @Input() fromParent: string;
-
-  @Output() messageEvent = new EventEmitter<string>();
-
-  constructor() { }
+  constructor(private postService: PostService) {
+    // let postService = new PostService()
+    this.posts = postService.postList;
+  }
 
   ngOnInit(): void {
 
   }
 
-  sendMessage() {
-    this.messageEvent.emit(this.outputChildMessage);
+  addNewData() {
+    let newPost: Post = { id: 7, postTitle: "Post 7" };
 
+    this.postService.addPost(newPost);
   }
 
 }
